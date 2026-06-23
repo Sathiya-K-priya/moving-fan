@@ -1,0 +1,21 @@
+.room-container{
+  width: 900px;
+  height: 100vh;
+}
+
+.control-panel{
+  position:absolute;
+  top:auto;
+  left:20px;
+  z-index:100;
+  background:rgba(0,0,0,.8);
+  color:white;
+  padding:15px;
+  border-radius:12px;
+}
+
+button{
+  padding:8px 12px;
+  margin:4px;
+  cursor:pointer;
+}
