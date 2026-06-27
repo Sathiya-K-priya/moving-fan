@@ -1,0 +1,84 @@
+<!-- HERO SECTION -->
+<section class="hero-section d-flex align-items-center">
+  <div class="container">
+    <div class="row align-items-center gy-5">
+
+      <!-- Left Content -->
+      <div class="col-lg-6">
+
+        <span class="badge bg-primary mb-3 px-3 py-2">
+          🚀 Angular + Three.js Project
+        </span>
+
+        <h1 class="display-4 fw-bold mb-3">
+          From Reality to Interactive 3D
+        </h1>
+
+        <p class="lead text-muted mb-4">
+          I captured my real room using a mobile camera and recreated it as an
+          interactive 3D experience using <strong>Angular</strong> and
+          <strong>Three.js</strong>. Compare the real room with its virtual
+          recreation and explore it in real time.
+        </p>
+
+        <div class="d-flex gap-3">
+
+        <button class="btn btn-outline-dark btn-lg px-4"
+          routerLink="/room">
+            View Demo
+       </button>
+        </div>
+
+        <div class="row mt-5 text-center">
+
+          <div class="col-4">
+            <h4 class="fw-bold text-primary">🎥</h4>
+            <small>Real Room Video</small>
+          </div>
+
+          <div class="col-4">
+            <h4 class="fw-bold text-success">🧩</h4>
+            <small>Interactive Objects</small>
+          </div>
+
+          <div class="col-4">
+            <h4 class="fw-bold text-warning">⚡</h4>
+            <small>3D Experience</small>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Right Video -->
+      <div class="col-lg-6">
+
+        <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
+
+          <div class="card-header bg-dark text-white">
+            🎥 My Real Room
+          </div>
+
+          <video
+            controls
+            autoplay
+            muted
+            loop
+            playsinline
+            class="w-100">
+
+            <source src="videos/moving-fan-landscape.mp4" type="video/mp4">
+
+          </video>
+
+          <div class="card-footer text-center">
+            This is the actual room used to create the interactive 3D model.
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>

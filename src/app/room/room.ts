@@ -2,12 +2,13 @@ import {   AfterViewInit,
   Component,
   ElementRef,
   ViewChild } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 @Component({
   selector: 'app-room',
-  imports: [],
+  imports: [RouterOutlet],
   templateUrl: './room.html',
   styleUrl: './room.scss',
 })
@@ -136,6 +137,51 @@ this.scene.add(this.directionalLight);
     this.scene.add(ceiling);
 
    const fanGroup = new THREE.Group();
+for (let s = 0; s < 50; s++) {
+
+  const starShape = new THREE.Shape();
+
+  for (let i = 0; i < 10; i++) {
+    const radius = i % 2 === 0 ? 0.2 : 0.08;
+    const angle = (i / 10) * Math.PI * 2;
+    const x = Math.cos(angle) * radius;
+    const y = Math.sin(angle) * radius;
+
+    if (i === 0)
+      starShape.moveTo(x, y);
+    else
+      starShape.lineTo(x, y);
+  }
+
+  starShape.closePath();
+
+  const geometry = new THREE.ShapeGeometry(starShape);
+
+  const material = new THREE.MeshStandardMaterial({
+    color: 0xffffaa,
+    emissive: 0xffff88,
+    emissiveIntensity: 1
+  });
+
+  const star = new THREE.Mesh(geometry, material);
+
+  star.rotation.x = Math.PI / 2;
+
+  // random sky placement (ceiling area)
+  star.position.set(
+    (Math.random() - 0.5) * 20,  // X spread
+    9.98,                        // ceiling height
+    (Math.random() - 0.5) * 20   // Z spread
+  );
+
+  star.scale.setScalar(0.3 + Math.random() * 0.7);
+
+  this.scene.add(star);
+}
+const moonLight = new THREE.PointLight(0xffffcc, 1.5, 60);
+moonLight.position.set(5, 9.6, -5); // moved forward (closer)
+
+this.scene.add(moonLight);
 
 // Rod
 const rod = new THREE.Mesh(
